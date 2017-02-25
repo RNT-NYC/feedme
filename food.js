@@ -3,6 +3,8 @@ var Search = require('grubhub-api').Search;
 
 var postmates = new Postmates('cus_LA6qb6Kk8WimL-','8fe2217c-cea8-4857-ae44-08c8ff460b0f'); 
 
+const Zomato = require('zomato.js');
+const z = new Zomato('81a2f5a31cd718b2ade567544077f75d');
 
 
 var delivery = {
@@ -48,6 +50,8 @@ postmates.list('ongoing', function(err, res) {
 //    console.log(res.body.status); // "pickup"
 //});
 
+
+/**  TRASH GRUB HUB
 var search = new Search('60 Washington Square S, New York, NY 10012');
  
 search.run({perPage: 15, page: 1}, function(err, results) {
@@ -58,3 +62,25 @@ search.run({perPage: 15, page: 1}, function(err, results) {
     );
   });
 });
+**/
+
+
+function randomInt (low, high) {
+    return Math.floor(Math.random() * (high - low) + low);
+}
+var rand = randomInt(1, 10); 
+console.log(rand); 
+
+
+z.search({  //q: 'Leopold Cafe & Bar',
+    count: 10
+  })
+  .then(function(data) {
+    console.log("----Random Resturaunt-------"); 
+    var randrest = data[rand];
+    
+    console.log("Name: ", randrest.name, randrest.location.address); 
+  })
+  .catch(function(err) {
+    console.error(err);
+  });
