@@ -1,123 +1,117 @@
 <html>
 
 <head>
-    <title>Order Food</title>
-    <style>
-        #container {
+  <title>Order Food</title>
+  <style>
+    #container {
+      position: relative;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%)
+    }
 
-          position: relative;
-          margin: 0;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          margin-right: -50%;
-          transform: translate(-50%, -50%)
-        }
-
-        >
-    </style>
+    >
+  </style>
 </head>
 
 <body>
-    <div id=container>
-      <h4> FOOD </h4>
-      <form role="form"
-        action="/process?form=order" method="POST">
+  <div id=container>
+    <h4> FOOD </h4>
+    <form role="form" action="/process?form=order" method="POST">
 
-        <input type="hidden" name="_csrf" value="{{csrf}}">
+      <input type="hidden" name="_csrf" value="{{csrf}}">
 
-        <div class="form-group">
-          <label for="fieldName" class="col-sm-2 control-label">
+      <div class="form-group">
+        <label for="fieldName" class="col-sm-2 control-label">
           Name</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="fieldName"
-<<<<<<< HEAD
-            name="fullname">
-=======
-            name="name">
->>>>>>> 7f778041787ef107a417f53cbb714a22d7ec6d60
-          </div>
-        </div> <!-- End of form-group -->
-        <br />
-
-        <div class="form-group">
-          <label for="fieldAddress" class="col-sm-2 control-label">
-          Address Line</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="fieldAddress"
-            name="address">
-          </div>
-        </div> <!-- End of form-group -->
-        <br />
-
-        <div class="form-group">
-          <label for="fieldCity" class="col-sm-2 control-label">
-          City</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="fieldCity"
-            name="city">
-          </div>
-        </div> <!-- End of form-group -->
-        <br />
-
-        <div class="form-group">
-          <label for="fieldZip" class="col-sm-2 control-label">
-          Zip Code</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="fieldZip"
-            name="zipcode">
-          </div>
-        </div> <!-- End of form-group -->
-        <br />
-
-        <div class="form-group">
-          <label for="fieldState" class="col-sm-2 control-label">
-          State</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="fieldState"
-            name="state">
-          </div>
-        </div> <!-- End of form-group -->
-        <br />
-
-        <div class="form-group">
-          <label for="fieldPhone" class="col-sm-2 control-label">
-          Phone Number</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="fieldPhone"
-            name="phoneNumber">
-          </div>
-        </div> <!-- End of form-group -->
-        <br />
-
-        <div class="form-group">
-          <label for="fieldNotes" class="col-sm-2 control-label">
-          Extra notes</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="fieldNotes"
-            name="notes">
-          </div>
-        </div> <!-- End of form-group -->
-        <br />
-
-        <div class="form-group">
-          <label for="fieldEmail" class="col-sm-2 control-label">
-          Email</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="fieldEmail"
-            name="email">
-          </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="fieldName" HEAD name="fullname">
         </div>
-        <br />
+      </div>
+      <!-- End of form-group -->
+      <br />
 
-        <div class="form-group">
-          <div class="col-sm-4">
-            <button type="submit" class="btn btn-default">Submit</button>
-          </div>
-        </div> <!-- End of form-group -->
+      <div class="form-group">
+        <label for="fieldAddress" class="col-sm-2 control-label">
+          Address Line</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="fieldAddress" name="address">
+        </div>
+      </div>
+      <!-- End of form-group -->
+      <br />
 
-      </form>
-    </div>
+      <div class="form-group">
+        <label for="fieldCity" class="col-sm-2 control-label">
+          City</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="fieldCity" name="city">
+        </div>
+      </div>
+      <!-- End of form-group -->
+      <br />
+
+      <div class="form-group">
+        <label for="fieldZip" class="col-sm-2 control-label">
+          Zip Code</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="fieldZip" name="zipcode">
+        </div>
+      </div>
+      <!-- End of form-group -->
+      <br />
+
+      <div class="form-group">
+        <label for="fieldState" class="col-sm-2 control-label">
+          State</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="fieldState" name="state">
+        </div>
+      </div>
+      <!-- End of form-group -->
+      <br />
+
+      <div class="form-group">
+        <label for="fieldPhone" class="col-sm-2 control-label">
+          Phone Number</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="fieldPhone" name="phoneNumber">
+        </div>
+      </div>
+      <!-- End of form-group -->
+      <br />
+
+      <div class="form-group">
+        <label for="fieldNotes" class="col-sm-2 control-label">
+          Extra notes</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="fieldNotes" name="notes">
+        </div>
+      </div>
+      <!-- End of form-group -->
+      <br />
+
+      <div class="form-group">
+        <label for="fieldEmail" class="col-sm-2 control-label">
+          Email</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="fieldEmail" name="email">
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <div class="col-sm-4">
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </div>
+      <!-- End of form-group -->
+
+    </form>
+  </div>
 </body>
 
 </html>
