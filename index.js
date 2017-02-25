@@ -35,13 +35,14 @@ app.get('/thankyou', function(req, res) {
 app.post('/process', function(req, res){
   console.log('Form' + req.query.form);
   console.log('CSRF token : ' + req.body._csrf);
-  console.log('Email : ' + req.body.fullname);
+  console.log('Fullname : ' + req.body.fullname);
   console.log('Email : ' + req.body.email);
-  console.log('Email : ' + req.body.address);
-  console.log('Email : ' + req.body.city);
-  console.log('Email : ' + req.body.state);
-  console.log('Email : ' + req.body.zipcode);
-  console.log('Email : ' + req.body.phoneNumber);
+  console.log('Address : ' + req.body.address);
+  console.log('City : ' + req.body.city);
+  console.log('State : ' + req.body.state);
+  console.log('Zip Code : ' + req.body.zipcode);
+  console.log('phoneNumber : ' + req.body.phoneNumber);
+  console.log('Notes : ' + req.body.notes);
   res.redirect(303, '/thankyou');
 });
 
