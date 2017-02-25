@@ -4,13 +4,16 @@ var app = express();
 
 app.disable('x-powered-by');
 
-var handlebars = require('express-handlebars').create({defaultLayout:'main'});
+var handlebars = require('express-handlebars').create({
+  defaultLayout: 'main'
+});
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
 app.use(require('body-parser').urlencoded({
-  extended: true}));
+  extended: true
+}));
 
 var credentials = require('./credentials.js');
 app.set(require('cookie-parser')(credentials.cookieSecret));
@@ -25,28 +28,38 @@ app.get('/', function(req, res) {
 });
 
 app.get('/order', function(req, res) {
-  res.render('order',{ csrf: 'CSRF token here'});
+  res.render('order', {
+    csrf: 'CSRF token here'
+  });
 });
 
 app.get('/thankyou', function(req, res) {
   res.render('thankyou');
 });
 
-app.post('/process', function(req, res){
+app.post('/process', function(req, res) {
   console.log('Form' + req.query.form);
   console.log('CSRF token : ' + req.body._csrf);
   console.log('Fullname : ' + req.body.fullname);
+  exports.fullname = req.body.fullname;
   console.log('Email : ' + req.body.email);
+  exports.email = req.body.email;
   console.log('Address : ' + req.body.address);
+  exports.address = req.body.address;
   console.log('City : ' + req.body.city);
+  exports.city = req.body.city;
   console.log('State : ' + req.body.state);
+  exports.state = req.body.state;
   console.log('Zip Code : ' + req.body.zipcode);
+  exports.zipcode = req.body.zipcode;
   console.log('phoneNumber : ' + req.body.phoneNumber);
+  exports.phoneNumber = req.body.phoneNumber;
   console.log('Notes : ' + req.body.notes);
-  res.redirect(303, '/thankyou');
+  exports.notes = req.body.notes;
+  res.redirect(303, '/thankyou',{
+
+  });
 });
-
-
 
 
 app.get('/junk', function(req, res, next) {
@@ -55,11 +68,11 @@ app.get('/junk', function(req, res, next) {
 });
 
 app.use(function(err, req, res, next) {
-  console.log('Error: '+ err.message);
+  console.log('Error: ' + err.message);
   next();
 });
 
-app.use(function(req, res){
+app.use(function(req, res) {
   res.type('text/html');
   res.status(404);
   res.render('404');
@@ -68,6 +81,6 @@ app.use(function(req, res){
 
 
 
-app.listen(app.get('port'), function(){
+app.listen(app.get('port'), function() {
   console.log('DESZ NUTS');
 });
