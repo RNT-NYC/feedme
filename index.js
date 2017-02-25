@@ -32,6 +32,22 @@ app.get('/thankyou', function(req, res) {
   res.render('thankyou');
 });
 
+app.post('/process', function(req, res){
+  console.log('Form' + req.query.form);
+  console.log('CSRF token : ' + req.body._csrf);
+  console.log('Email : ' + req.body.fullname);
+  console.log('Email : ' + req.body.email);
+  console.log('Email : ' + req.body.address);
+  console.log('Email : ' + req.body.city);
+  console.log('Email : ' + req.body.state);
+  console.log('Email : ' + req.body.zipcode);
+  console.log('Email : ' + req.body.phoneNumber);
+  res.redirect(303, '/thankyou');
+});
+
+
+
+
 app.get('/junk', function(req, res, next) {
   console.log('Tried to touch my /junk');
   throw new Error('/junk doesnt\'t exist');
