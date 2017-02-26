@@ -3,11 +3,11 @@ var Search = require('grubhub-api').Search;
 
 var postmates = new Postmates('cus_LA6qb6Kk8WimL-','8fe2217c-cea8-4857-ae44-08c8ff460b0f');
 
-
+var stuff = require("./index.js");
 
 var delivery = {
   pickup_address: "20 McAllister St, San Francisco, CA",
-  dropoff_address: "101 Market St, San Francisco, CA"
+  dropoff_address: dropoff_address: stuff.address+", "+stuff.city+", "+stuff.state
 };
 
 postmates.quote(delivery, function(err, res) {
@@ -24,11 +24,10 @@ var delivery = {
   pickup_business_name: "Optional Pickup Business Name, Inc.",
   pickup_notes: "Optional note that this is Invoice #123",
 
-  dropoff_name: "Alice",
-  dropoff_address: "101 Market St, San Francisco, CA",
-  dropoff_phone_number: "415-555-1234",
-  dropoff_business_name: "Optional Dropoff Business Name, Inc.",
-  dropoff_notes: "Optional note to ring the bell",
+  dropoff_name: stuff.fullname,
+  dropoff_address: stuff.address+", "+stuff.city+", "+stuff.state,
+  dropoff_phone_number: stuff.phoneNumber,
+  dropoff_notes: stuff.notes,
   //quote_id: "qUdje83jhdk"
 };
 
