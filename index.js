@@ -33,10 +33,8 @@ app.get('/order', function(req, res) {
   });
 });
 
-var deltime = "123"; 
-var restname = "some rest"; 
 app.get('/thankyou', function(req, res) {
-  res.render('thankyou', {deltime:deltime, restname: restname});
+  res.render('thankyou');
 });
 
 app.post('/process', function(req, res) {
@@ -58,9 +56,7 @@ app.post('/process', function(req, res) {
   exports.phoneNumber = req.body.phoneNumber;
   console.log('Notes : ' + req.body.notes);
   exports.notes = req.body.notes;
-  res.redirect(303, '/thankyou',{
-
-  });
+  res.redirect(303, '/thankyou');
 });
 
 
@@ -79,8 +75,6 @@ app.use(function(req, res) {
   res.status(404);
   res.render('404');
 });
-
-
 
 
 app.listen(app.get('port'), function() {
