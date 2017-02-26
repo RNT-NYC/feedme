@@ -37,10 +37,10 @@ app.get('/order', function(req, res) {
 app.get('/thankyou', function(req, res) {
   var foodres = require('./food.js')
   res.render('thankyou', {
-    deltimes: foodres.deltimes,
-    restname: foodres.restname,
-    restrating: foodres.restrating,
-    totalcost: foodres.totalcost
+    deltimes: 'hi',
+    restname: 'hi',
+    restrating: 'hi',
+    totalcost: 'hi'
   });
 });
 
