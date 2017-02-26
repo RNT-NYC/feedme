@@ -89,3 +89,5 @@ z.search({  //q: 'Leopold Cafe & Bar',
   .catch(function(err) {
     console.error(err);
   });
+
+var restName; 
