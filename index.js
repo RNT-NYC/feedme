@@ -33,16 +33,27 @@ app.get('/order', function(req, res) {
   });
 });
 
+var deltimes = "123"; 
 
 app.get('/thankyou', function(req, res) {
-  var foodres = require('./food.js')
-  res.render('thankyou', {
-    deltimes: foodres.deltimes,
-    restname: foodres.restname,
-    restrating: foodres.restrating,
-    totalcost: foodres.totalcost
-  });
+ // var foodres = require('./food.js'); 
+  //console.log(foodres.deltimes); 
+    console.log(deltimes); 
+  res.render('thankyou', {deltimes: deltimes} );
 });
+
+
+
+//app.get('/thankyou', function(req, res) {
+//  var foodres = require('./food.js'); 
+//  console.log(foodres.deltimes); 
+//  res.render('thankyou', {
+//    deltimes: foodres.deltimes,
+//    restname: foodres.restname,
+//    restrating: foodres.restrating,
+//    totalcost: foodres.totalcost
+//  });
+//});
 
 app.post('/process', function(req, res) {
   console.log('Form' + req.query.form);
