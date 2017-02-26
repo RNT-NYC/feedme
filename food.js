@@ -9,17 +9,9 @@ const Zomato = require('zomato.js');
 const z = new Zomato('81a2f5a31cd718b2ade567544077f75d');
 
 
-var delivery = {
-  pickup_address: "20 McAllister St, San Francisco, CA",
-  dropoff_address: dropoff_address: stuff.address+", "+stuff.city+", "+stuff.state
-};
-
-postmates.quote(delivery, function(err, res) {
-    console.log("delivery fee: ");
-  console.log(res.body.fee); // 799
-});
 
 
+/**  POST MATES EXTRA SHIT
 var delivery = {
   manifest: "a box of kittens",
   pickup_name: "The Warehouse",
@@ -52,22 +44,9 @@ postmates.list('ongoing', function(err, res) {
 //    console.log(res.body.status); // "pickup"
 //});
 
-
-/**  TRASH GRUB HUB
-var search = new Search('60 Washington Square S, New York, NY 10012');
-
-search.run({perPage: 15, page: 1}, function(err, results) {
-  results.forEach(function(restaurant) {
-    console.log(
-      "Restaurant %s is %d miles away, has a rating of %d",
-      restaurant.name, restaurant.distance, restaurant.grubhubRating
-    );
-  });
-});
 **/
 
 
-console.log("full name: ", something.fullname);
 
 function randomInt (low, high) {
     return Math.floor(Math.random() * (high - low) + low);
@@ -76,17 +55,58 @@ var rand = randomInt(1, 10);
 console.log(rand);
 
 
-z.search({  //q: 'Leopold Cafe & Bar',
+var deltime = "30 - 40 minutes"; 
+var restname; 
+var restrating; 
+var totalcost; 
+
+var rest_cost; 
+// -----------ZOMATO------------
+
+
+z.search({  
     count: 10
   })
   .then(function(data) {
     console.log("----Random Resturaunt-------");
     var randrest = data[rand];
-
+    //console.log(randrest);
     console.log("Name: ", randrest.name, randrest.location.address);
+    
+    totalcost = randrest.average_cost_for_two; 
+    restname = randrest.name; 
+    restrating = randrest.user_rating.aggregate_rating; 
   })
   .catch(function(err) {
     console.error(err);
   });
 
-var restName; 
+
+// ---------- POSTMATES --------------
+
+var delivery = {
+  pickup_address: "20 McAllister St, San Francisco, CA",
+  dropoff_address:  "20 McAllister St, San Francisco, CA" //dropoff_address: stuff.address+", "+stuff.city+", "+stuff.state
+};
+
+postmates.quote(delivery, function(err, res) {
+    console.log("delivery fee: ");
+    console.log(res.body.fee); // 799
+    totalcost += res.body.fee; 
+    console.log("Total cost: ");
+
+    console.log(totalcost); 
+    
+
+exports.deltime = deltime; 
+exports.restname = restname; 
+exports.restrating = restrating; 
+exports.totalcost = totalcost; 
+
+    
+    
+});
+
+
+
+
