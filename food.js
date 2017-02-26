@@ -55,16 +55,16 @@ var rand = randomInt(1, 10);
 console.log(rand);
 
 
-var deltime = "30 - 40 minutes"; 
-var restname; 
-var restrating; 
-var totalcost; 
+var deltime = "30 - 40 minutes";
+var restname;
+var restrating;
+var totalcost;
 
-var rest_cost; 
+var rest_cost;
 // -----------ZOMATO------------
 
 
-z.search({  
+z.search({
     count: 10
   })
   .then(function(data) {
@@ -72,10 +72,10 @@ z.search({
     var randrest = data[rand];
     //console.log(randrest);
     console.log("Name: ", randrest.name, randrest.location.address);
-    
-    totalcost = randrest.average_cost_for_two; 
-    restname = randrest.name; 
-    restrating = randrest.user_rating.aggregate_rating; 
+
+    totalcost = randrest.average_cost_for_two;
+    restname = randrest.name;
+    restrating = randrest.user_rating.aggregate_rating;
   })
   .catch(function(err) {
     console.error(err);
@@ -92,21 +92,19 @@ var delivery = {
 postmates.quote(delivery, function(err, res) {
     console.log("delivery fee: ");
     console.log(res.body.fee); // 799
-    totalcost += res.body.fee; 
+    totalcost += res.body.fee;
     console.log("Total cost: ");
 
-    console.log(totalcost); 
-    
+    console.log(totalcost);
 
-exports.deltime = deltime; 
-exports.restname = restname; 
-exports.restrating = restrating; 
-exports.totalcost = totalcost; 
 
-    
-    
+exports.deltime = deltime;
+exports.restname = restname;
+exports.restrating = restrating;
+exports.totalcost = totalcost;
+
+exports.resSearch = z.search();
+exports.
+
+
 });
-
-
-
-

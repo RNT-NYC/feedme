@@ -33,9 +33,9 @@ app.get('/order', function(req, res) {
   });
 });
 
-
 app.get('/thankyou', function(req, res) {
-  var foodres = require('./food.js')
+  var foodres = require('./food.js');
+  console.log(foodres.restname);
   res.render('thankyou', {
     deltimes: foodres.deltimes,
     restname: foodres.restname,
