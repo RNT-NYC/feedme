@@ -1,6 +1,8 @@
 var Postmates = require('postmates');
 var Search = require('grubhub-api').Search;
 
+var something = require('./index.js'); 
+
 var postmates = new Postmates('cus_LA6qb6Kk8WimL-','8fe2217c-cea8-4857-ae44-08c8ff460b0f');
 
 const Zomato = require('zomato.js');
@@ -65,6 +67,8 @@ search.run({perPage: 15, page: 1}, function(err, results) {
 });
 **/
 
+
+console.log("full name: ", something.fullname); 
 
 function randomInt (low, high) {
     return Math.floor(Math.random() * (high - low) + low);
