@@ -33,15 +33,17 @@ app.get('/order', function(req, res) {
   });
 });
 
+var deltime = "123"; 
+var restname = "some rest"; 
 app.get('/thankyou', function(req, res) {
-  res.render('thankyou');
+  res.render('thankyou', {deltime:deltime, restname: restname});
 });
 
 app.post('/process', function(req, res) {
   console.log('Form' + req.query.form);
   console.log('CSRF token : ' + req.body._csrf);
   console.log('Fullname : ' + req.body.fullname);
-  exports.fullname = req.body.fullname;
+  exports.fullname = "somethinggg"; //req.body.fullname;
   console.log('Email : ' + req.body.email);
   exports.email = req.body.email;
   console.log('Address : ' + req.body.address);
