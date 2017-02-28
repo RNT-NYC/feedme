@@ -44,28 +44,28 @@ app.get('/thankyou', function(req, res) {
   });
 });
 
+
 app.post('/process', function(req, res) {
   console.log('Form' + req.query.form);
   console.log('CSRF token : ' + req.body._csrf);
   console.log('Fullname : ' + req.body.fullname);
-  exports.fullname = "somethinggg"; //req.body.fullname;
+  module.exports.fullname = req.body.fullname;
   console.log('Email : ' + req.body.email);
-  exports.email = req.body.email;
+  module.exports.email = req.body.emsail;
   console.log('Address : ' + req.body.address);
-  exports.address = req.body.address;
+  module.exports.address = req.body.address;
   console.log('City : ' + req.body.city);
-  exports.city = req.body.city;
+  module.exports.city = req.body.city;
   console.log('State : ' + req.body.state);
-  exports.state = req.body.state;
+  module.exports.state = req.body.state;
   console.log('Zip Code : ' + req.body.zipcode);
-  exports.zipcode = req.body.zipcode;
+  module.exports.zipcode = req.body.zipcode;
   console.log('phoneNumber : ' + req.body.phoneNumber);
-  exports.phoneNumber = req.body.phoneNumber;
+  module.exports.phoneNumber = req.body.phoneNumber;
   console.log('Notes : ' + req.body.notes);
-  exports.notes = req.body.notes;
+  module.exports.notes = req.body.notes;
   res.redirect(303, '/thankyou');
 });
-
 
 app.get('/junk', function(req, res, next) {
   console.log('Tried to touch my /junk');

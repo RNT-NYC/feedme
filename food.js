@@ -98,13 +98,12 @@ postmates.quote(delivery, function(err, res) {
     console.log(totalcost);
 
 
-exports.deltime = deltime;
-exports.restname = restname;
-exports.restrating = restrating;
-exports.totalcost = totalcost;
+module.exports.deltime = deltime;
+module.exports.restname = restname;
+module.exports.restrating = restrating;
+module.exports.totalcost = totalcost;
 
-exports.resSearch = z.search();
-exports.
+module.exports.resSearch = z.search();
 
 
 });
